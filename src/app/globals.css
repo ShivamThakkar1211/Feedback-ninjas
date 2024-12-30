@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Root Variables for Colors */
+  :root {
+    /* Default background color for light mode */
+    --background: #121212; /* Dark background */
+    --foreground: #E0E0E0; /* Light foreground */
+
+    --card: #1E1E1E; /* Dark card background */
+    --card-foreground: #E0E0E0; /* Light text on card */
+    
+    --primary: #212121; /* Primary background */
+    --primary-foreground: #FFFFFF; /* Light foreground for primary elements */
+    
+    --secondary: #333333; /* Secondary background */
+    --secondary-foreground: #E0E0E0; /* Light text for secondary elements */
+
+    --border: #3E3E3E; /* Border color */
+    --input: #2A2A2A; /* Input background */
+    --ring: #C0C0C0; /* Ring color */
+    
+    --radius: 0.5rem; /* Border radius */
+  }
+
+  /* Dark Mode Colors */
+  .dark {
+    --background: #121212; /* Dark background */
+    --foreground: #E0E0E0; /* Light foreground */
+
+    --card: #1E1E1E; /* Dark card background */
+    --card-foreground: #E0E0E0; /* Light text on card */
+    
+    --primary: #212121; /* Primary background */
+    --primary-foreground: #FFFFFF; /* Light foreground for primary elements */
+    
+    --secondary: #333333; /* Secondary background */
+    --secondary-foreground: #E0E0E0; /* Light text for secondary elements */
+
+    --border: #3E3E3E; /* Border color */
+    --input: #2A2A2A; /* Input background */
+    --ring: #C0C0C0; /* Ring color */
+  }
+}
+
+@layer base {
+  /* General Reset */
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  /* Body styling */
+  body {
+    @apply bg-background text-foreground; /* Background and text color applied globally */
+  }
+
+  /* Handle dark mode on body */
+  .dark body {
+    @apply bg-background text-foreground; /* Apply dark mode colors */
+  }
+
+  /* Additional styling for other elements if needed */
+  .card {
+    @apply bg-card text-card-foreground; /* Dark card background with light text */
+  }
+
+  /* Buttons, inputs, and other UI elements */
+  button, input {
+    @apply bg-input text-foreground border border-border rounded-sm;
+  }
+
+  /* Link styling */
+  a {
+    @apply text-primary;
+  }
+}
+
+/* Add fallback background to prevent issues in case Tailwind vars are not properly applied */
+body {
+  background-color: #121212; /* Fallback color */
+  color: #E0E0E0; /* Fallback text color */
+}
+
+/* Dark mode fallback */
+body.dark {
+  background-color: #121212; /* Fallback color for dark mode */
+  color: #E0E0E0; /* Fallback text color for dark mode */
+}
